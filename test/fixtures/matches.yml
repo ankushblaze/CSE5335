@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ids: 1
+  season: 1
+  date: MyString
+  team1: MyString
+  team2: MyString
+  winner: MyString
+
+two:
+  ids: 1
+  season: 1
+  date: MyString
+  team1: MyString
+  team2: MyString
+  winner: MyString

@@ -1,0 +1,143 @@
+
+<html ng-app="myApp">
+<head><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.3.0-beta.11/angular-animate.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <style type="text/css">
+    .well[ui-view]{
+      height: 65px;
+    }
+
+    .ui-view-container {
+      position: relative;
+    }
+
+    .ng-enter, .ng-leave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      -webkit-transition:all 1s linear;
+      -moz-transition:all 1s linear;
+      -o-transition:all 1s linear;
+      transition:all 1s linear;
+    }
+
+    .ng-enter {
+      opacity: 0;
+      -webkit-transform: translateX(2em);
+      -moz-transform: translateX(2em);
+      transform: translateX(2em);
+    }
+
+    .ng-enter-active {
+      opacity: 1;
+      -webkit-transform: translateX(30em);
+      -moz-transform:translateX(30em);
+      transform:translateX(30em);
+    }
+
+    .ng-leave {
+      opacity: 1;
+      /*padding-left: 0px;*/
+      -webkit-transform:translateX(30em);
+      -moz-transform:translateX(30em);
+      transform:translateX(30em);
+    }
+
+    .ng-leave-active {
+      opacity: 0;
+      /*padding-left: 100px;*/
+      -webkit-transform:translateX(3em);
+      -moz-transform:translateX(3em);
+      transform:translateX(3em);
+    }
+  </style>
+</head>
+<body>
+<div style="width:100%;height:50px;background-color:#2d2d30;color: #F7F7F7 "><center><h1> RESTAURANT CHAINS</h1></center></div>
+<div  ng-controller="myCtrl" class="container">
+
+
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+
+
+      <th id="id"></th>
+      <th id="season"></th>
+      <th id="date"></th>
+      <th id="city"></th>
+      <th id="team1"></th>
+      <th id="team2"></th>
+      <th id="winner"></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="x in names">
+      <td>{{ x.ids }}</td>
+      <td>{{ x.season }}</td>
+      <td>{{ x.date }}</td>
+      <td>{{ x.city }}</td>
+      <td>{{ x.team1 }}</td>
+      <td>{{ x.team2 }}</td>
+      <td>{{ x.winner }}</td>
+    </tr>
+  </table>
+  </tbody>
+
+
+</div>
+
+<script>
+
+  var app = angular.module('myApp',['ngAnimate']);
+  app.controller('myCtrl', function($scope, $http,$timeout) {
+    $scope.names=[]
+    var j=1
+    document.getElementById("id").innerText="id";
+    document.getElementById("season").innerText=" Season";
+    document.getElementById("date").innerText="Date";
+    document.getElementById("city").innerText="city";
+    document.getElementById("team1").innerText="Team1";
+    document.getElementById("team2").innerText="Team2";
+    document.getElementById("winner").innerText="Winner";
+
+    for(var i=1;i<=100;i++) {
+      $timeout(function () {
+        $http.get(j).then(function (response) {
+
+          $scope.names.push(response.data);
+          if(j>21)
+          {
+            $scope.names.shift()
+          }
+
+
+
+        })
+        j+=1
+      }, (1000 * i))
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+  });
+
+
+
+</script>
+</body>
+</html>
+
+
