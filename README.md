@@ -1,24 +1,9 @@
-# README
+# CSE5335 PROJECT 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1.I have used mongodb(Mongoid) as my nosql source.Mongodb is one of the most popular databases and i wanted an experience in it.
 
-Things you may want to cover:
+2.The mapping of database to the app was a bit easy because of the use of mongoid.
 
-* Ruby version
+3.The html.get was getting an html page instead of json which was difficult to change and also as i had initialy made the app using active records uploading it to heroku was a tough task.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4.The concerns would be making sure that the database objects are correctly mapped and the correct data is extracted.
